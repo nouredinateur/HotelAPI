@@ -19,7 +19,7 @@ POST requests
 |-----------------|---------|------|------------------------------|----------------|
 | /api/booking    | POST    | json | Books a room for a customer  | [Post data](#-booking-post)  |
 | /api/customers/ | POST    | json | Create a new customer        | [Post data](#-customer-post) |
-| /api/rooms/     | POST    | json | Create a new room            | [Post data](#-room-post)     |
+| /api/rooms/     | POST    | json | Create a new room            | [Post data](####-room-post)     |
 
 DELETE requests
 
