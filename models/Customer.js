@@ -7,7 +7,10 @@ const customerSchema = new Schema({
     phone:   Number,
     email: String,
     address:   String,
-    role: String,
+    role: {
+        type: String,
+        default: "customer"
+    },
     roomID: String,
 });
 
