@@ -1,6 +1,6 @@
 ## HOTEL DASHBOARD API
 
-# API requests
+## API requests
 
 GET requests
 
@@ -17,43 +17,58 @@ POST requests
 
 | Endponits       | request | type | description                  | POST data      |
 |-----------------|---------|------|------------------------------|----------------|
-| /api/booking    | POST    | json | Books a room for a customer  | [Post data](##-booking-post)  |
-| /api/customers/ | POST    | json | Create a new customer        | [Post data](##-customer-post) |
-| /api/rooms/     | POST    | json | Create a new room            | [Post data](##-room-post)     |
+| /api/booking    | POST    | json | Books a room for a customer  | [Post data](#-booking-post)  |
+| /api/customers/ | POST    | json | Create a new customer        | [Post data](#-customer-post) |
+| /api/rooms/     | POST    | json | Create a new room            | [Post data](#-room-post)     |
+
+DELETE requests
+
+| Endponits         | request | type | description             |
+|-------------------|---------|------|-------------------------|
+| /api/customers/id | DELETE  | json | Delete a customer by id |
+| /api/rooms/id     | DELETE  | json | Delete a room by id     |
+
+PUT requests
+
+| Endponits         | request | type | description              |
+|-------------------|---------|------|--------------------------|
+| /api/customers/id | PUT     | json | Updates a customer by id |
+| /api/rooms/id     | PUT     | json | Updates a room by id     |
 
 
-## Booking POST
+#### Booking POST
 
 ```json
 {
-	"roomID": "id",
-	"customerID": "id"
+	"roomID": "room id here",
+	"customerID": "customer id here"
 }
 
 ```
 
-## Customer POST
+#### Customer POST
 
 ```json
 {
-    "phone":   "Number",
-    "email": "String",
-    "address":   "String",
-    "role": {
-        "type": "String",
-        "default": "customer"
-    },
-    "roomID": "String",
+    name: "Jon Doe"
+    phone: 060595004,
+    email: "jon@example.com",
+    address:  "somewhere",
+    role: "customer" //defaults to customer 
+    roomID: "id of the booked room",
 }
 
 ```
 
-## Room POST
+#### Room POST
 
 ```json
 {
-    "number": "Number",
-    "isReserved": { "type": "Boolean", "default": false },
+    number: 4210,
+    isReserved: false,  //default is false
 }
 
 ```
+
+
+
