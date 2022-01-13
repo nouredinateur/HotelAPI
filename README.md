@@ -26,8 +26,8 @@ POST requests
 
 ```json
 {
-	"roomID": id,
-	"customerID": id
+	"roomID": "id",
+	"customerID": "id"
 }
 
 ```
@@ -36,14 +36,14 @@ POST requests
 
 ```json
 {
-    phone:   Number,
-    email: String,
-    address:   String,
-    role: {
-        type: String,
-        default: "customer"
+    "phone":   "Number",
+    "email": "String",
+    "address":   "String",
+    "role": {
+        "type": "String",
+        "default": "customer"
     },
-    roomID: String,
+    "roomID": "String",
 }
 
 ```
@@ -52,8 +52,8 @@ POST requests
 
 ```json
 {
-    number: Number,
-    isReserved: { type: Boolean, default: false },
+    "number": "Number",
+    "isReserved": { "type": "Boolean", "default": false },
 }
 
 ```
