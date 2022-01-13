@@ -50,12 +50,12 @@ PUT requests
 
 ```json
 {
-    name: "Jon Doe"
-    phone: 060595004,
-    email: "jon@example.com",
-    address:  "somewhere",
-    role: "customer" //defaults to customer 
-    roomID: "id of the booked room",
+    "name": "Jon Doe"
+    "phone": 060595004,
+    "email": "jon@example.com",
+    "address":  "somewhere",
+    "role": "customer" //defaults to customer 
+    "roomID": "id of the booked room",
 }
 
 ```
@@ -64,8 +64,8 @@ PUT requests
 
 ```json
 {
-    number: 4210,
-    isReserved: false,  //default is false
+    "number": 4210,
+    "isReserved": false,  //default is false
 }
 
 ```
