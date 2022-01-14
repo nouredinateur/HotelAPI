@@ -3,53 +3,59 @@ const Customer = require('../../models/Customer')
 
 const index = (req, res) => {
     Customer.find().then((result) => {
-        res.json(result)
-    }).catch((err) => {
-        res.json(err)
-    })
-}
-
-const show = (req, res) => {
-    let id = req.params.id;
-    Customer.findById(id).then((result)=> {
-        res.json(result)
-    }).catch((err) => {
-        res.json(err)
-    })
-}
-
-const store = (req, res) => {
-    const customerData =  {...req.body}
-    Customer.insertMany(customerData).then((result) => {
-        console.log(result)
-        res.json('Record inserted')
-    }).catch((err)=> {
-        console.log(err);
-        res.json('Storing failed')
-    })
-}
-
-const destroy = (req, res) => {
-    const { id } = req.params
-    const record = { _id: id }
-    Customer.deleteOne(record).then((result)=> {
-        console.log('deleted ', result)
-        res.json('Deleted succefully')
+        if(result.length > 0){
+            res.status(200).json(result)
+        }else{
+            res.status(204).json("No Content Found")
+        }
     }).catch((err) => {
         console.log(err)
-        res.json("Delete failed")
     })
 }
 
-const update = (req, res) =>  {
+const show = async (req, res) => {
+    let id = req.params.id;
+    try {
+        const result = await Customer.findById(id)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
+}
+
+  
+
+const store = async (req, res) => {
+    const customerData =  {...req.body}
+    try {
+        const result = await  Customer.insertMany(customerData);
+        res.status(200).json({message: "Store Succes"})
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
+}
+
+const destroy = async (req, res) => {
+    const { id } = req.params
+    const record = { _id: id }
+    try {
+        const result = await Customer.deleteOne(record)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
+}
+
+const update = async (req, res) =>  {
     const { id } = req.params
     const record = { _id: id }
     const updatedData =  {...req.body}
-    Customer.updateOne(record, updatedData).then((result)=> {
-        res.json(result)
-    }).catch((err) => {
-        res.json(err)
-    })
+    try {
+        const result = await Customer.updateOne(record, updatedData)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
 }
 
 module.exports =  {

@@ -4,9 +4,10 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const app = express();
 const router = require('./routes/routes')
+require('dotenv').config();
 
-let port = 4242;
-let url = 'mongodb://localhost:27017/booking';
+let port = process.env.PORT;
+let url = process.env.URL;
 
 mongoose.connect(url).then(() => {
     console.log('Connected to the database')

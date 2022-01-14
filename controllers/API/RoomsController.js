@@ -2,53 +2,57 @@ const Rooms = require('../../models/Rooms')
 
 const index = (req, res) => {
     Rooms.find().then((result) => {
-        res.json(result)
+        if(result.length > 0){
+            res.status(200).json(result)
+        }else{
+            res.status(204).json("No Content Found")
+        }
     }).catch((err) => {
         res.json(err)
     })
 }
 
-const show = (req, res) => {
+const show = async (req, res) => {
     let id = req.params.id;
-    Rooms.findById(id).then((result)=> {
-        res.json(result)
-    }).catch((err) => {
-        res.json(err)
-    })
+    try {
+        const result = await Rooms.findById(id)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
 }
 
-const store = (req, res) => {
-    const customerData =  {...req.body}
-    Rooms.insertMany(customerData).then((result) => {
-        console.log(result)
-        res.json('Record inserted')
-    }).catch((err)=> {
-        console.log(err);
-        res.json('Storing failed')
-    })
+const store = async (req, res) => {
+    const roomData =  {...req.body}
+    try {
+        const result = await  Rooms.insertMany(roomData);
+        res.status(200).json({message: "Store Succes"})
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
 }
 
-const destroy = (req, res) => {
+const destroy = async (req, res) => {
     const { id } = req.params
     const record = { _id: id }
-    Rooms.deleteOne(record).then((result)=> {
-        console.log('deleted ', result)
-        res.json('Deleted succefully')
-    }).catch((err) => {
-        console.log(err)
-        res.json("Delete failed")
-    })
+    try {
+        const result = await Rooms.deleteOne(record)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
 }
 
-const update = (req, res) =>  {
+const update = async (req, res) =>  {
     const { id } = req.params
     const record = { _id: id }
     const updatedData =  {...req.body}
-    Rooms.updateOne(record, updatedData).then((result)=> {
-        res.json(result)
-    }).catch((err) => {
-        res.json(err)
-    })
+    try {
+        const result = await Rooms.updateOne(record, updatedData)
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(400).json({ message: err })
+    }
 }
 
 
