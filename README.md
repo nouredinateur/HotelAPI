@@ -12,6 +12,7 @@ GET requests
 | /api/customers/id | GET     | json | returns a customer by id           |
 | /api/rooms        | GET     | json | returns a list of rooms            |
 | /api/rooms/id     | GET     | json | returns a room by id               |
+| /api/reservation  | GET     | json | returns reservations               |
 
 POST requests
 
