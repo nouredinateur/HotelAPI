@@ -9,12 +9,7 @@ require('dotenv').config();
 let port = process.env.PORT;
 let url = process.env.URL;
 
-mongoose.connect(url,
-    {
-        server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-        replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-    }
-).then(() => {
+mongoose.connect(url).then(() => {
     console.log('Connected to the database')
 }).catch((err)=> {
     console.log(err)
