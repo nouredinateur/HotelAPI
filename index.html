@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel API</title>
+</head>
+<body>
+            <h2 id="hotel-dashboard-api">HOTEL DASHBOARD API</h2>
+        <h2 id="api-requests">API requests</h2>
+        <p>GET requests</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Endponits</th>
+        <th>request</th>
+        <th>type</th>
+        <th>description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>/api</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns a list of available rooms</td>
+        </tr>
+        <tr>
+        <td>/api/booked</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns a list of booked rooms</td>
+        </tr>
+        <tr>
+        <td>/api/customers</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns a list of customers</td>
+        </tr>
+        <tr>
+        <td>/api/customers/id</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns a customer by id</td>
+        </tr>
+        <tr>
+        <td>/api/rooms</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns a list of rooms</td>
+        </tr>
+        <tr>
+        <td>/api/rooms/id</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns a room by id</td>
+        </tr>
+        <tr>
+        <td>/api/reservation</td>
+        <td>GET</td>
+        <td>json</td>
+        <td>returns reservations</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>POST requests</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Endponits</th>
+        <th>request</th>
+        <th>type</th>
+        <th>description</th>
+        <th>POST data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>/api/booking</td>
+        <td>POST</td>
+        <td>json</td>
+        <td>Books a room for a customer</td>
+        <td><a href="#-booking-post">Post data</a></td>
+        </tr>
+        <tr>
+        <td>/api/customers/</td>
+        <td>POST</td>
+        <td>json</td>
+        <td>Create a new customer</td>
+        <td><a href="#-customer-post">Post data</a></td>
+        </tr>
+        <tr>
+        <td>/api/rooms/</td>
+        <td>POST</td>
+        <td>json</td>
+        <td>Create a new room</td>
+        <td><a href="####-room-post">Post data</a></td>
+        </tr>
+        </tbody>
+        </table>
+        <p>DELETE requests</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Endponits</th>
+        <th>request</th>
+        <th>type</th>
+        <th>description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>/api/customers/id</td>
+        <td>DELETE</td>
+        <td>json</td>
+        <td>Delete a customer by id</td>
+        </tr>
+        <tr>
+        <td>/api/rooms/id</td>
+        <td>DELETE</td>
+        <td>json</td>
+        <td>Delete a room by id</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>PUT requests</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Endponits</th>
+        <th>request</th>
+        <th>type</th>
+        <th>description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>/api/customers/id</td>
+        <td>PUT</td>
+        <td>json</td>
+        <td>Updates a customer by id</td>
+        </tr>
+        <tr>
+        <td>/api/rooms/id</td>
+        <td>PUT</td>
+        <td>json</td>
+        <td>Updates a room by id</td>
+        </tr>
+        </tbody>
+        </table>
+        <h4 id="booking-post">Booking POST</h4>
+        <pre><code class="lang-json">{
+            <span class="hljs-attr">"roomID"</span>: <span class="hljs-string">"room id here"</span>,
+            <span class="hljs-attr">"customerID"</span>: <span class="hljs-string">"customer id here"</span>
+        }
+        </code></pre>
+        <h4 id="customer-post">Customer POST</h4>
+        <pre><code class="lang-json">{
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jon Doe"</span>
+            <span class="hljs-string">"phone"</span>: <span class="hljs-number">060595004</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"jon@example.com"</span>,
+            <span class="hljs-attr">"address"</span>:  <span class="hljs-string">"somewhere"</span>,
+            <span class="hljs-attr">"role"</span>: <span class="hljs-string">"customer"</span> //defaults to customer 
+            <span class="hljs-string">"roomID"</span>: <span class="hljs-string">"id of the booked room"</span>,
+        }
+        </code></pre>
+        <h4 id="room-post">Room POST</h4>
+        <pre><code class="lang-json">{
+            <span class="hljs-string">"number"</span>: <span class="hljs-number">4210</span>,
+            <span class="hljs-string">"isReserved"</span>: <span class="hljs-literal">false</span>,  //default <span class="hljs-keyword">is</span> <span class="hljs-literal">false</span>
+        }
+        </code></pre>
+
+</body>
+</html>
