@@ -9,6 +9,9 @@ require('dotenv').config();
 let port = process.env.PORT;
 let url = process.env.URL;
 
+app.set("view engin", "ejs")
+app.set('views', 'views');
+
 mongoose.connect(url).then(() => {
     console.log('Connected to the database')
 }).catch((err)=> {
@@ -16,7 +19,7 @@ mongoose.connect(url).then(() => {
 })
 
 app.get('/', (req, res) => {
-    res.render('index.html')
+    res.render('index.ejs')
 })
 
 app.use(bodyParser.json()) // for parsing application/json
