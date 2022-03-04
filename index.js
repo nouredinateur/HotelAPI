@@ -4,10 +4,13 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const app = express();
 const router = require('./routes/routes')
+let cors = require('cors')
 require('dotenv').config();
 
 let port = process.env.PORT;
 let url = process.env.URL;
+
+app.use(cors())
 
 app.set("view engin", "ejs")
 app.set('views', 'views');
